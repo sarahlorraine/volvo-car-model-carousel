@@ -31,7 +31,7 @@ export const VolvoCarModelCarousel: React.FC = () => {
         extend={{
           marginBottom: "16px",
           width: "100%",
-          "@media (min-width: 768px)": { width: "250px" },
+          "@media (min-width: 480px)": { width: "250px" },
         }}
       >
         <SelectInput
@@ -47,7 +47,7 @@ export const VolvoCarModelCarousel: React.FC = () => {
           <option value={VolvoCarBodyType.Sedan}>Sedan</option>
         </SelectInput>
       </Block>
-      <Spacer size={{ default: 3 }} />
+      <Spacer size={{ default: 2 }} />
       <Flex
         extend={{
           flexDirection: "row",

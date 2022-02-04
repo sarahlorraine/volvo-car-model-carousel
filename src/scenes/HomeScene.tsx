@@ -30,13 +30,12 @@ export const HomeScene: React.FC<HomeSceneProps> = ({
           flexDirection: "row",
         }}
       >
-        <Text variant={"cook"}>Front-end code test</Text>
         <Flex
           extend={{
             textAlign: "right",
             minWidth: "148px",
             flexDirection: "row",
-            alignSelf: "center",
+            alignSelf: "baseline",
             marginLeft: "auto",
           }}
         >
@@ -59,8 +58,7 @@ export const HomeScene: React.FC<HomeSceneProps> = ({
           </Text>
         </Flex>
       </Flex>
-      <Spacer size={{ default: 4 }} />
-
+      <Spacer size={{ default: 2 }} />
       <VolvoCarModelCarousel />
     </View>
   );
