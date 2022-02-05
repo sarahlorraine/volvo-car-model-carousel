@@ -1,6 +1,7 @@
 import React from "react";
 import { Block, Flex, Link, Spacer, Text, useTheme } from "vcc-ui";
 import { VolvoCarViewModel } from "../../../types/typeModels";
+import Image from "next/image";
 
 interface VolvoCarModelItemProps {
   model: VolvoCarViewModel;
@@ -61,9 +62,10 @@ export const VolvoCarModelItem: React.FC<VolvoCarModelItemProps> = ({
           {model.modelType}
         </Text>
       </Flex>
-      <img
-        style={{ width: "100%" }}
+      <Image
         src={model.imageUrl}
+        height={300}
+        width={400}
         alt={`${model.modelName} vehicle image`}
         aria-hidden="true"
       />

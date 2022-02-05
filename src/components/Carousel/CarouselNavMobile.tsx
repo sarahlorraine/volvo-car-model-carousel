@@ -19,15 +19,15 @@ export const CarouselNavMobile: React.FC<CarouselNavProps> = ({
       extend={{
         flexDirection: "row",
         width: "100%",
-        alignItems: "center",
         alignSelf: "center",
         justifyContent: "center",
       }}
     >
-      {slideIndexes.map((i) => {
+      {slideIndexes.map((slide, i) => {
         return (
           <Click
-            aria-label={`Go to vehicle ${i + 1}`}
+            key={i}
+            aria-label={`Go to vehicle ${slide + 1}`}
             extend={{
               borderRadius: "100%",
               backgroundColor:
