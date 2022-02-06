@@ -1,11 +1,10 @@
 import React from "react";
-import { Flex, Spacer, Toggle, View, Text, useTheme } from "vcc-ui";
+import { Flex, Spacer, Toggle, View, Text } from "vcc-ui";
 
 interface LayoutProps {
   onToggleTheme: (isDarkTheme: boolean) => void;
 }
 export const Layout: React.FC<LayoutProps> = ({ onToggleTheme, children }) => {
-  const theme = useTheme();
   const [checked, setChecked] = React.useState<boolean>(false);
 
   const handleChangeTheme = (checked: boolean) => {
@@ -14,14 +13,14 @@ export const Layout: React.FC<LayoutProps> = ({ onToggleTheme, children }) => {
   };
   return (
     <View
-      extend={{
+      extend={({ theme }) => ({
         backgroundColor: theme.color.background.primary,
         position: "fixed",
         overflowY: "scroll",
         padding: "24px 16px",
         height: "100%",
         width: "100%",
-      }}
+      })}
     >
       <Flex
         extend={{
@@ -46,10 +45,10 @@ export const Layout: React.FC<LayoutProps> = ({ onToggleTheme, children }) => {
           />
           <Spacer />
           <Text
-            extend={{
+            extend={({ theme }) => ({
               marginLeft: "auto",
               color: theme.color.foreground.secondary,
-            }}
+            })}
             variant="columbus"
           >
             Toggle theme

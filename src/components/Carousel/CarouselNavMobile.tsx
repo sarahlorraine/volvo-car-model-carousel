@@ -1,5 +1,5 @@
 import React from "react";
-import { Click, Flex, useTheme } from "vcc-ui";
+import { Click, Flex } from "vcc-ui";
 
 export interface CarouselNavProps {
   activeIndex: number;
@@ -12,8 +12,6 @@ export const CarouselNavMobile: React.FC<CarouselNavProps> = ({
   slideIndexes,
   onNavChange,
 }) => {
-  const theme = useTheme();
-
   return (
     <Flex
       extend={{
@@ -28,7 +26,7 @@ export const CarouselNavMobile: React.FC<CarouselNavProps> = ({
           <Click
             key={i}
             aria-label={`Go to vehicle ${slide + 1}`}
-            extend={{
+            extend={({ theme }) => ({
               borderRadius: "100%",
               backgroundColor:
                 i == activeIndex
@@ -38,7 +36,7 @@ export const CarouselNavMobile: React.FC<CarouselNavProps> = ({
               width: "8px",
               marginLeft: "10px",
               transition: "background .5s ease 0s",
-            }}
+            })}
             onClick={() => onNavChange(i)}
           />
         );

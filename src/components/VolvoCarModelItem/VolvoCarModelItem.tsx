@@ -1,5 +1,5 @@
 import React from "react";
-import { Block, Flex, Link, Spacer, Text, useTheme } from "vcc-ui";
+import { Block, Flex, Link, Spacer, Text } from "vcc-ui";
 import { VolvoCarViewModel } from "../../../types/typeModels";
 import Image from "next/image";
 import NextLink from "next/link";
@@ -11,8 +11,6 @@ interface VolvoCarModelItemProps {
 export const VolvoCarModelItem: React.FC<VolvoCarModelItemProps> = ({
   model,
 }: VolvoCarModelItemProps) => {
-  const theme = useTheme();
-
   return (
     <Block
       extend={{
@@ -26,11 +24,11 @@ export const VolvoCarModelItem: React.FC<VolvoCarModelItemProps> = ({
       key={model.id}
     >
       <Text
-        extend={{
+        extend={({ theme }) => ({
           color: theme.color.foreground.secondary,
           textAlign: "left",
           textTransform: "uppercase",
-        }}
+        })}
         variant="bates"
         subStyle="emphasis"
       >
@@ -56,9 +54,9 @@ export const VolvoCarModelItem: React.FC<VolvoCarModelItemProps> = ({
         </Text>
         <Spacer />
         <Text
-          extend={{
+          extend={({ theme }) => ({
             color: theme.color.foreground.secondary,
-          }}
+          })}
           variant="columbus"
         >
           {model.modelType}
