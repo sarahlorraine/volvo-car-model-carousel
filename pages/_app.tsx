@@ -1,23 +1,25 @@
-import { App } from "../src/components/App";
+import React from "react";
+import App from "../src/components/App";
 import { StyleProvider, ThemePicker } from "vcc-ui";
+import Layout from "../src/components/Page/Page";
 import "../public/css/styles.css";
 
-import React from "react";
-
-function HomePage() {
-  const [theme, setTheme] = React.useState<"dark" | "light">("light");
+function Root() {
+  const [pageTheme, setPageTheme] = React.useState<"dark" | "light">("light");
 
   return (
     <StyleProvider>
-      <ThemePicker variant={theme}>
+      <ThemePicker variant={pageTheme}>
         <React.StrictMode>
-          <App
-            onToggleTheme={(isDark) => setTheme(isDark ? "dark" : "light")}
-          />
+          <Layout
+            onToggleTheme={(isDark) => setPageTheme(isDark ? "dark" : "light")}
+          >
+            <App />
+          </Layout>
         </React.StrictMode>
       </ThemePicker>
     </StyleProvider>
   );
 }
 
-export default HomePage;
+export default Root;
