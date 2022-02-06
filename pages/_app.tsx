@@ -1,10 +1,10 @@
 import React from "react";
-import App from "../src/components/App";
+import { AppProps } from "next/dist/shared/lib/router/router";
 import { StyleProvider, ThemePicker } from "vcc-ui";
-import Layout from "../src/components/Page/Page";
+import Layout from "../src/components/Layout/Layout";
 import "../public/css/styles.css";
 
-function Root() {
+export default function App({ Component, pageProps }: AppProps) {
   const [pageTheme, setPageTheme] = React.useState<"dark" | "light">("light");
 
   return (
@@ -14,12 +14,10 @@ function Root() {
           <Layout
             onToggleTheme={(isDark) => setPageTheme(isDark ? "dark" : "light")}
           >
-            <App />
+            <Component {...pageProps} />
           </Layout>
         </React.StrictMode>
       </ThemePicker>
     </StyleProvider>
   );
 }
-
-export default Root;
