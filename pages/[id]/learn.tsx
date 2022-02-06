@@ -3,6 +3,7 @@ import { Button, Flex, Spacer, Text } from "vcc-ui";
 import Page from "../../src/components/Page/Page";
 import { getModalInfoFromId } from "../../src/helpers/helpers";
 import { VolvoCarModelId } from "../../types/typeModels";
+import NextLink from "next/link";
 
 export default function Learn() {
   // Placeholder Learn more page
@@ -16,14 +17,16 @@ export default function Learn() {
       <Flex>
         <Text variant={"ootah"}>Coming soon</Text>
         <Spacer size={{ default: 8 }} />
-        <Button
-          extend={{
-            width: "auto",
-          }}
-          href="/"
-        >
-          Go home
-        </Button>
+        <NextLink as={"/"} href={"/"}>
+          <Button
+            extend={{
+              width: "auto",
+            }}
+            href="/"
+          >
+            Go home
+          </Button>
+        </NextLink>
       </Flex>
     </Page>
   );

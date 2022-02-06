@@ -2,6 +2,7 @@ import React from "react";
 import { Block, Flex, Link, Spacer, Text, useTheme } from "vcc-ui";
 import { VolvoCarViewModel } from "../../../types/typeModels";
 import Image from "next/image";
+import NextLink from "next/link";
 
 interface VolvoCarModelItemProps {
   model: VolvoCarViewModel;
@@ -39,7 +40,8 @@ export const VolvoCarModelItem: React.FC<VolvoCarModelItemProps> = ({
         extend={{
           flexDirection: "row",
           marginBottom: "16px",
-          "@media (max-width: 768px)": { display: "block" },
+          display: "block",
+          "@media (min-width: 768px)": { display: "flex" },
           textAlign: "left",
         }}
       >
@@ -76,21 +78,21 @@ export const VolvoCarModelItem: React.FC<VolvoCarModelItemProps> = ({
           padding: "14px 0",
         }}
       >
-        <Link
-          aria-label={`Learn more ${model.modelName}`}
-          href={`/${model.id}/learn`}
-          arrow="right"
-        >
-          Learn
-        </Link>
+        <NextLink as={`/${model.id}/learn`} href={"/[id]/learn"}>
+          <Link aria-label={`Learn more ${model.modelName}`} arrow="right">
+            Learn
+          </Link>
+        </NextLink>
         <Spacer size={{ default: 3 }} />
-        <Link
-          aria-label={`View shop ${model.modelName}`}
-          href={`/${model.id}/shop`}
-          arrow="right"
-        >
-          Shop
-        </Link>
+        <NextLink as={`/${model.id}/shop`} href={"/[id]/shop"}>
+          <Link
+            aria-label={`View shop ${model.modelName}`}
+            href={`/${model.id}/shop`}
+            arrow="right"
+          >
+            Shop
+          </Link>
+        </NextLink>
       </Flex>
     </Block>
   );

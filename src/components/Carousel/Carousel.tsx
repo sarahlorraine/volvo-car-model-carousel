@@ -106,7 +106,8 @@ export const CarouselSlide: React.FC = ({ children }) => {
     <Block
       extend={{
         position: "relative",
-        "@media (max-width: 768px)": { flex: "0 0 80%" },
+        flex: "0 0 80%",
+        "@media (min-width: 480px)": { flex: "unset" },
       }}
     >
       {children}
